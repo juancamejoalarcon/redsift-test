@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "globals": {
+    "require": true,
+    "console": true,
+    "Promise": true,
+    "module": true,
+    "clearInterval": true,
+    "setInterval": true,
+    "clearTimeout": true,
+    "setTimeout": true,
+    "setImmediate": true,
+    "document": true,
+    "window": true,
+    "process": true
+  },
+  "rules": {
+    "eqeqeq": [
+      1,
+      "allow-null"
+    ],
+    "camelcase": 0,
+    "curly": [
+      1,
+      "all"
+    ],
+    "new-cap": 2,
+    "no-irregular-whitespace": 2,
+    "no-new": 2,
+    "quotes": [
+      0,
+      "single"
+    ],
+    "no-extend-native": 2,
+    "guard-for-in": 2,
+    "no-use-before-define": 2,
+    "no-undef": 2,
+    "strict": 0,
+    "no-unused-vars": 2,
+    "no-console": 2
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "name": "react-dmarc-sift",
+  "display-name": "React Dmarc Sift",
+  "description": "Display DMARC results for an inbox with a React Frontend",
+  "author": "",
+  "version": "1.0.0",
+  "icon": "assets/blueprint.svg",
+  "interfaces": {
+    "summary": {
+      "controller": "dist/js/controller.umd-es2015.min.js"
+    }
+  },
+  "dag": {
+    "inputs":{
+      "emails": {
+        "gmailEmails":{
+          "filter":{
+            "conditions":[{
+              "date": "between now and 1 week before now"
+            }],
+            "operator": "AND"
+          },
+          "wants": [
+            "archive",
+            "headers",
+            "extensions",
+            "textBody",
+            "strippedHtmlBody"
+          ]
+        }
+      }
+    },
+    "nodes":[{
+      "#": "Parse",
+      "implementation": {
+        "javascript": "server/parse.js"
+      },
+      "input": {
+          "bucket": "gmailEmails"
+      },
+      "outputs": {
+        "messages-st": {},
+        "messages": {}
+      }
+    },
+    {
+      "#": "Count",
+      "implementation": {
+        "javascript": "server/count.js"
+      },
+      "input": {
+        "bucket": "messages-st",
+        "select": "*/*"
+      },
+      "outputs": {
+        "counts": {}
+      }
+    }],
+    "stores":{
+      "messages-st" : {
+        "key$schema":"string/string"
+      }
+    },
+    "outputs":{
+      "exports":{
+        "counts" : {
+          "key$schema":"string"
+        },
+        "messages": {
+          "key$schema": "string/string"
+        }
+      }
+    }
+  }
+}
