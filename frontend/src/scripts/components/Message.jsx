@@ -3,23 +3,29 @@ import PropTypes from "prop-types";
 
 const Message = ({ message }) => {
   const [isActive, setIsActive] = useState(false);
-  // date
-  // from
-  const { subject, authResults, body } = message;
-
-
+  const { from: { name, email }, subject, authResults, body, date } = message;
+  const isAuthResultValid = (result) => {
+    if (!authResults) {
+      return false
+    }
+    return authResults[result] === 'pass' || authResults[result] === 'bestguesspass'
+  }
   return (
     <div className="message-item">
       <div className="message-title" onClick={() => setIsActive(!isActive)}>
         <div className="message-title-label">
-          <div>Name</div>
+          <div>{name}</div>
           <div>{subject.substring(0, 30)}...</div>
-          <div>14/09/1993</div>
+          <div>{date}</div>
         </div>
         <div>{isActive ? '-' : '+'}</div>
       </div>
       {isActive && <div className="message-content">
-        <div></div>
+        <div>{email}</div>
+        <div>Pass DKIM validation: {isAuthResultValid('DKIM') ? '✓' : '×'} </div>
+        <div>Pass DMARC validation: {isAuthResultValid('DMARC') ? '✓' : '×'}</div>
+        <div>Pass SPF validation: {isAuthResultValid('SPF') ? '✓' : '×'}</div>
+        <div>Email Text: {body.substring(0, 200)}...</div>
       </div>}
     </div>
   );
