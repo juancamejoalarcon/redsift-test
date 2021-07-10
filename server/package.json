@@ -5,5 +5,7 @@
   "author": "",
   "version": "1.0.0",
   "#": "Please use 'redsift npm' instead of system 'npm' ",
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
 }
