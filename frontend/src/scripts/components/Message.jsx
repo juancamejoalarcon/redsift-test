@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 const Message = ({ message }) => {
   const [isActive, setIsActive] = useState(false);
   const { from: { name, email }, subject, authResults, body, date, geoCode } = message;
-  console.log(geoCode)
   const isAuthResultValid = (result) => {
     if (!authResults) {
       return false
@@ -15,11 +14,11 @@ const Message = ({ message }) => {
     <div className="message-item">
       <div className="message-title" onClick={() => setIsActive(!isActive)}>
         <div className="message-title-label">
-          <div>{name}</div>
-          <div>{subject.substring(0, 30)}...</div>
-          <div>{date}</div>
+          <div className="message-title-label-name">{name}</div>
+          <div className="message-title-label-subject">{subject.substring(0, 30)}...</div>
+          <div className="message-title-label-date">{date}</div>
         </div>
-        <div>{isActive ? '-' : '+'}</div>
+        <div>{isActive ? '˄' : '˅'}</div>
       </div>
       {isActive && <div className="message-content">
         <div>{email}</div>

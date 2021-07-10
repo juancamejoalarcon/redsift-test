@@ -10,7 +10,7 @@
     align-items: center;
 }
 .menu-container {
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid lightgray;
 }
 
 .menu-tab {
@@ -20,4 +20,14 @@
     border-bottom: 2px solid red;
     text-transform: uppercase;
     color: red;
+}
+
+.menu-tab img {
+    max-width: 25px;
+}
+
+.menu-tab-label {
+    font-family: 'Arial';
+    font-size: 0.9rem;
+    padding-top: 0.3rem;
 }
