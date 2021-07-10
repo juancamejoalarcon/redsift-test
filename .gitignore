@@ -22,3 +22,6 @@ node_modules/
 # Go
 server/vendor/
 azure_creds.json
+
+# Front
+frontend/public/

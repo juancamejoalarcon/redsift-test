@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Display DMARC results for an inbox with a React Frontend",
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp build-js",
     "build:css": "NODE_ENV=production node ./scripts/build-css",
     "storybook": "start-storybook -s ./public -p 6007",
     "build-storybook": "build-storybook"
