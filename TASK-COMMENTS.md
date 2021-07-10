@@ -13,7 +13,7 @@ npm run test
 
 from the server folder.
 
-Apart from that, I modified the parse.js file so that it can send more properties to the frontend such as the 'date' of the email
+Apart from that, I modified the parse.js file so that it can send more properties to the frontend such as the 'date' of the email, and added a new service to the sift store called geo.js in charge of getting the IP values from http://api.ipstack.com/, if it is not working it might be because my credentials expired (change API_KEY)
 
 
 # FRONTEND

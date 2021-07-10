@@ -5,6 +5,7 @@ import Message from './Message';
 class Messages extends Component {
   static propTypes = {
     messages: PropTypes.instanceOf(Array).isRequired,
+    geo: PropTypes.instanceOf(Object).isRequired,
   };
 
   constructor(props) {
@@ -16,12 +17,17 @@ class Messages extends Component {
   render() {
 
     const {
-        props: { messages }
+        props: { messages, geo }
       } = this;
 
     return (
       <div className="message-list">
-          {messages.map((m, key) => <Message key={key} message={m} />)}
+          {messages.map((m, key) => {
+            if (m.ip && geo[m.ip]) {
+              m.geoCode = geo[m.ip]
+            }
+            return <Message key={key} message={m} />
+          })}
       </div>
     );
   }

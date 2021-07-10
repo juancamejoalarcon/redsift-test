@@ -55,7 +55,21 @@
       "outputs": {
         "counts": {}
       }
-    }],
+    },
+    {
+      "#": "Geo",
+      "implementation": {
+        "javascript": "server/geo.js"
+      },
+      "input": {
+        "bucket": "messages-st",
+        "select": "*/*"
+      },
+      "outputs": {
+        "geo": {}
+      }
+    }
+  ],
     "stores":{
       "messages-st" : {
         "key$schema":"string/string"
@@ -68,6 +82,9 @@
         },
         "messages": {
           "key$schema": "string/string"
+        },
+        "geo": {
+          "key$schema": "string"
         }
       }
     }
