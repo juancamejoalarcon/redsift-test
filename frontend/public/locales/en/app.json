@@ -1,4 +1,6 @@
 {
   "title-home": "DMARC Viewer",
-  "description-home": "I'm a React Sift displaying {{count}} emails."
+  "description-home": "I'm a React Sift displaying {{count}} emails.",
+  "label-1": "Primary",
+  "label-2": "Summary"
 }

@@ -3,8 +3,8 @@
 */
 'use strict';
 
-const getAuthResults = require("./get-auth-results");
-const getIp = require("./get-ip");
+const getAuthResults = require("./services/get-auth-results");
+const getIp = require("./services/get-ip");
 const moment = require('moment')
 
 // Javascript nodes are run in a Node.js sandbox so you can require dependencies following the node paradigm

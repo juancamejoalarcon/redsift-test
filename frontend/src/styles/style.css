@@ -3,6 +3,7 @@
 @import "./header.css";
 @import "./menu.css";
 @import "./message.css";
+@import "./summary.css";
 
 :root {
   --font-color: rgb(51, 51, 51);

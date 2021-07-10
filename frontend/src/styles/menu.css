@@ -15,11 +15,13 @@
 
 .menu-tab {
     padding: 1rem;
-    margin-bottom: -2px;
     cursor: pointer;
-    border-bottom: 2px solid red;
     text-transform: uppercase;
     color: red;
+}
+
+.menu-tab:hover {
+    box-shadow: 0px 2px 0px red;
 }
 
 .menu-tab img {
@@ -30,4 +32,13 @@
     font-family: 'Arial';
     font-size: 0.9rem;
     padding-top: 0.3rem;
+}
+
+.tab-list {
+    display: flex;
+    border-bottom: 2px solid lightgray;
+}
+
+.tab-list-active {
+    box-shadow: 0px 2px 0px red;
 }

@@ -24,4 +24,4 @@ server/vendor/
 azure_creds.json
 
 # Front
-frontend/public/*
+frontend/public/dist

@@ -1,15 +1,14 @@
-import D3Wrap from "../libs/d3Wrap";
+import D3Wrap from "../../libs/d3Wrap";
 import * as d3 from "d3";
 
 export const SummaryChart = ({initData}) => {
     const methods = {
-        initialize: (div, data, options) => {
-            const w = 300;
-            const h = 300;
-            const r = 100;
+        initialize: (div, data) => {
+            const w = 500;
+            const h = 500;
+            const r = 200;
             const color =  d3.scaleOrdinal(d3.schemeCategory10);
             const usedData = data || initData;
-            console.log("DTATA", usedData)
             
             const vis = d3.select(div)
                 .append("svg:svg")
