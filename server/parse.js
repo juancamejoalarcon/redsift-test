@@ -4,6 +4,7 @@
 'use strict';
 
 const getAuthResults = require("./get-auth-results");
+const getGeoCode = require("./get-geo-code");
 const moment = require('moment')
 
 // Javascript nodes are run in a Node.js sandbox so you can require dependencies following the node paradigm
@@ -21,12 +22,16 @@ module.exports = function (got) {
     const emailJmap = JSON.parse(valueBuffer);
     const { id, threadId, subject, textBody, strippedHtmlBody, headers, from, date } = emailJmap;
 
+
     // Not all emails contain a textBody so we do a cascade selection
     const body = textBody || strippedHtmlBody || '';
     const wordCount = countWords(body);
     let authResults = null
+    let geoCode = null
     if (headers && headers['Authentication-Results']) {
       authResults = getAuthResults(headers['Authentication-Results'])
+      geoCode = getGeoCode(headers['Authentication-Results'])
+
     }
 
     const key = `${threadId}/${id}`;
@@ -38,7 +43,8 @@ module.exports = function (got) {
       wordCount,
       authResults,
       from,
-      date: moment(date).format("DD/MM/YYYY")
+      date: moment(date).format("DD/MM/YYYY"),
+      geoCode
     };
 
     // Emit into "messages-st" store so count can be calculated by the "Count" node

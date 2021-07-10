@@ -37,6 +37,7 @@ class App extends Component {
   render() {
     const { t, data } = this.props;
     const { counts, messages } = data;
+    console.log(data)
     const totalValidMessages = this.getTotalValidMessages(messages)
     const Comp = SummaryChart({
       initData: [{

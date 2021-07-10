@@ -2,6 +2,7 @@
  * React Dmarc Sift. Frontend controller entry point.
  */
 import { SiftController, registerSiftController } from '@redsift/sift-sdk-web';
+import axios from 'axios'
 
 const watchedStores = [
   'counts',
@@ -58,8 +59,18 @@ export default class MyController extends SiftController {
   getMessages() {
     return this.storage.getAll({
       bucket: 'messages'
-    }).then((values) => {
-      return values.map(({ value }) => JSON.parse(value)) || [];
+    }).then(async (values) => {
+      const parsedValues = []
+      await Promise.all(values.map(async ({ value }) => {
+        const parsedValue = JSON.parse(value)
+        if (parsedValue.geoCode) {
+          // TO REFACTOR: This should be done in the backend, it is not a good practice to expose keys in the front-end
+          const response = await axios.get(`http://api.ipstack.com/${parsedValue.geoCode}?access_key=60f3b9a26f8e62e4b35c8197181c6fcb`)
+          parsedValue.geoCode = response.data
+        }
+        parsedValues.push(parsedValue)
+      }));
+      return parsedValues
     });
   }
 
