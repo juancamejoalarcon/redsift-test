@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 const Message = ({ message }) => {
   const [isActive, setIsActive] = useState(false);
-  const { from: { name, email }, subject, authResults, body, date } = message;
+  const { from: { name, email }, subject, authResults, body, date, geoCode } = message;
+  console.log(geoCode)
   const isAuthResultValid = (result) => {
     if (!authResults) {
       return false
@@ -26,6 +27,7 @@ const Message = ({ message }) => {
         <div>Pass DMARC validation: {isAuthResultValid('DMARC') ? '✓' : '×'}</div>
         <div>Pass SPF validation: {isAuthResultValid('SPF') ? '✓' : '×'}</div>
         <div>Email Text: {body.substring(0, 200)}...</div>
+        {geoCode && <div>Geo: {geoCode.city + ' ' + geoCode.country_name}</div>}
       </div>}
     </div>
   );
@@ -44,7 +46,8 @@ Message.propTypes = {
         DMARC: PropTypes.string.isRequired,
         SPF: PropTypes.string.isRequired
       }).isRequired,
-      body: PropTypes.string.isRequired
+      body: PropTypes.string.isRequired,
+      geoCode: PropTypes.any.isRequired
   })
 }
 

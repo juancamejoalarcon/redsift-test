@@ -37,9 +37,8 @@ class App extends Component {
   render() {
     const { t, data } = this.props;
     const { counts, messages } = data;
-    console.log(data)
     const totalValidMessages = this.getTotalValidMessages(messages)
-    const Comp = SummaryChart({
+    const Summary = SummaryChart({
       initData: [{
         label: `DKIM (${totalValidMessages.DKIM})`,
         value: totalValidMessages.DKIM
@@ -54,7 +53,7 @@ class App extends Component {
 
     return (
       <div>
-        <Comp />
+        <Summary />
         <Header />
         <Menu />
         {/* <h1>{t('app:title-home')}</h1>
