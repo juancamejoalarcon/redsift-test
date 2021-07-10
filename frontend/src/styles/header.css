@@ -1,0 +1,17 @@
+.header {
+    padding: 1.5rem;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    color: grey;
+}
+.header-container img {
+    max-width: 80px;
+}
+
+.header-container h1 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}

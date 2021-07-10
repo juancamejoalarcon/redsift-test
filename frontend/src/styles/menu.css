@@ -1,0 +1,23 @@
+.menu {
+    background-color: white;
+    box-shadow: 2px -8px 17px -12px rgb(0 0 0 / 42%);
+}
+.menu-tab {
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu-container {
+    border-bottom: 2px solid grey;
+}
+
+.menu-tab {
+    padding: 1rem;
+    margin-bottom: -2px;
+    cursor: pointer;
+    border-bottom: 2px solid red;
+    text-transform: uppercase;
+    color: red;
+}

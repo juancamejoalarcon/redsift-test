@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,500,700');
 @import "./breakpoints.css";
+@import "./header.css";
+@import "./menu.css";
+@import "./message.css";
 
 :root {
   --font-color: rgb(51, 51, 51);

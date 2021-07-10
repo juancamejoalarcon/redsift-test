@@ -1,0 +1,27 @@
+.message {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.message-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: white;
+}
+
+.message-title-label {
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+}
+
+.message-title:hover {
+    background-color: lightgray;
+}
+
+.message-title,
+.message-content {
+    padding: 1rem;
+}
