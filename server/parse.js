@@ -4,7 +4,7 @@
 'use strict';
 
 const getAuthResults = require("./get-auth-results");
-const getGeoCode = require("./get-geo-code");
+const getIp = require("./get-ip");
 const moment = require('moment')
 
 // Javascript nodes are run in a Node.js sandbox so you can require dependencies following the node paradigm
@@ -27,10 +27,10 @@ module.exports = function (got) {
     const body = textBody || strippedHtmlBody || '';
     const wordCount = countWords(body);
     let authResults = null
-    let geoCode = null
+    let ip = null
     if (headers && headers['Authentication-Results']) {
       authResults = getAuthResults(headers['Authentication-Results'])
-      geoCode = getGeoCode(headers['Authentication-Results'])
+      ip = getIp(headers['Authentication-Results'])
 
     }
 
@@ -44,7 +44,7 @@ module.exports = function (got) {
       authResults,
       from,
       date: moment(date).format("DD/MM/YYYY"),
-      geoCode
+      ip
     };
 
     // Emit into "messages-st" store so count can be calculated by the "Count" node

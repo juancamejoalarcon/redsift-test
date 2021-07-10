@@ -1,5 +1,6 @@
 const getStringInResults = (authRestults, valueToMatch) => {
     if (authRestults.includes(valueToMatch)) {
+        // TODO: Change this to a regex
         const start = authRestults.substring(authRestults.indexOf(valueToMatch) + valueToMatch.length)
         return start.split(' ')[0];
     } else {

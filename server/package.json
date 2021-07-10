@@ -5,7 +5,12 @@
   "author": "",
   "version": "1.0.0",
   "#": "Please use 'redsift npm' instead of system 'npm' ",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
+    "jest": "^27.0.6",
     "moment": "^2.29.1"
-  }
+  },
+  "devDependencies": {}
 }

@@ -63,9 +63,9 @@ export default class MyController extends SiftController {
       const parsedValues = []
       await Promise.all(values.map(async ({ value }) => {
         const parsedValue = JSON.parse(value)
-        if (parsedValue.geoCode) {
+        if (parsedValue.ip) {
           // TO REFACTOR: This should be done in the backend, it is not a good practice to expose keys in the front-end
-          const response = await axios.get(`http://api.ipstack.com/${parsedValue.geoCode}?access_key=60f3b9a26f8e62e4b35c8197181c6fcb`)
+          const response = await axios.get(`http://api.ipstack.com/${parsedValue.ip}?access_key=60f3b9a26f8e62e4b35c8197181c6fcb`)
           parsedValue.geoCode = response.data
         }
         parsedValues.push(parsedValue)
